@@ -52,7 +52,6 @@ public class CustomerServlet extends HttpServlet {
 				response.sendRedirect("/customers");
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
-				e.printStackTrace();
 			}
 		}
 	}
@@ -78,7 +77,7 @@ public class CustomerServlet extends HttpServlet {
 			try {
 				dispatcher.forward(request, response);
 			} catch (ServletException | IOException e) {
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 	}
@@ -90,13 +89,13 @@ public class CustomerServlet extends HttpServlet {
 		int id = (int) (Math.random() * 10000);
 
 		Customer customer = new Customer(id, name, email, address);
-		this.customerService.save(customer);
+		customerService.save(customer);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("customer/create.jsp");
 		request.setAttribute("message", "New customer was created");
 		try {
 			dispatcher.forward(request, response);
 		} catch (ServletException | IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -139,7 +138,7 @@ public class CustomerServlet extends HttpServlet {
 		try {
 			dispatcher.forward(request, response);
 		} catch (ServletException | IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -156,7 +155,7 @@ public class CustomerServlet extends HttpServlet {
 		try {
 			dispatcher.forward(request, response);
 		} catch (ServletException | IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -173,7 +172,7 @@ public class CustomerServlet extends HttpServlet {
 		try {
 			dispatcher.forward(request, response);
 		} catch (ServletException | IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -182,7 +181,7 @@ public class CustomerServlet extends HttpServlet {
 		try {
 			dispatcher.forward(request, response);
 		} catch (ServletException | IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -194,7 +193,7 @@ public class CustomerServlet extends HttpServlet {
 		try {
 			dispatcher.forward(request, response);
 		} catch (ServletException | IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 }
